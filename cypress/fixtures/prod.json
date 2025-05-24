@@ -1,3 +1,4 @@
 {
-    "domain":"https://www.saucedemo.com/v1/"
+    "domain":"https://www.saucedemo.com/v1",
+    "inventoryPath":"/inventory.html"
 }
