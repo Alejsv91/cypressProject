@@ -1,0 +1,24 @@
+{
+  "name": "cypressproject",
+  "version": "1.0.0",
+  "description": "This cypress project contains script examplesj created by Alejandro Solano",
+  "main": "index.js",
+  "scripts": {
+    "test:prodDebug": "cypress open --env environment=prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alejsv91/cypressProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alejsv91/cypressProject/issues"
+  },
+  "homepage": "https://github.com/Alejsv91/cypressProject#readme",
+  "devDependencies": {
+    "cypress": "^14.4.0"
+  }
+}
