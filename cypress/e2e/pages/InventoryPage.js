@@ -20,6 +20,18 @@ class InventoryPage {
         return cy.get('img.inventory_item_img');
     }
 
+    get inventoryItemTitle(){
+        return cy.get('div.inventory_item_name');
+    }
+    
+    get inventoryItemPrice(){
+        return cy.get('div.inventory_item_price');
+    }
+
+    get inventoryItemAddCartButton(){
+        return cy.get('button.btn_primary.btn_inventory');
+    }
+
     visit() {
         cy.visit(this.path);
     }
@@ -30,9 +42,11 @@ class InventoryPage {
         this.inventoryItem.should('have.length.greaterThan', 1);
         cy.log('Validating inventory item').then(() => {
             this.inventoryItem.each(($el) => {
-                debugger;
                 cy.wrap($el).should('not.be.empty').within(() => {
                     this.inventoryItemImage.should('have.attr', 'src');
+                    this.inventoryItemTitle.should('be.visible');
+                    this.inventoryItemPrice.should('be.visible');
+                    this.inventoryItemAddCartButton.should('be.visible').should('be.enabled');                    
                 });
             })
         })
