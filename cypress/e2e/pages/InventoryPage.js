@@ -51,6 +51,13 @@ class InventoryPage {
             })
         })
     }
+
+    addItemInCart(itemText) {
+        cy.log('Getting item by text').text(()=>{
+            
+        })
+
+    }
 }
 
 export default InventoryPage

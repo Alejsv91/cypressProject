@@ -20,4 +20,8 @@ describe("Login test", () => {
         inventoryPage.visit();
         inventoryPage.validatePage();
     })
+
+    it('Add items to cart', () =>{
+        let itemText = 'Sauce Labs Bolt T-Shirt';
+    })
 })
