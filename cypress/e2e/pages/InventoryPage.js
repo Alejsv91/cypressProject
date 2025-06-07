@@ -23,7 +23,6 @@ class InventoryPage {
         return cy.get('div.pricebar > button');
     }
 
-
     get productsTitle() {
         return cy.get('#inventory_filter_container > div.product_label');
     }
@@ -52,7 +51,6 @@ class InventoryPage {
         return cy.get(this.inventoryItemAddCartButtonSelector);
     }
 
-
     visit() {
         cy.visit(this.path);
     }
@@ -79,14 +77,8 @@ class InventoryPage {
             this.inventoryItemAddCartButton.click().then(()=>{
                 this.inentoryRemoveButton.should('have.text',this.REMOVE);
             });
-            // cy.find(this.inventoryItemAddCartButtonSelector).click();
-            cy.wait(100000);
+            cy.wait(10000);
         })
-        // this.inventoryItemTitle.each(($el)=>{
-        //     debugger;
-        // })
-        
-
     }
 }
 

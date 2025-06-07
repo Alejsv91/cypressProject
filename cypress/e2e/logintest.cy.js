@@ -24,6 +24,7 @@ describe("Login test", () => {
     it('Add items to cart', () =>{
         let itemText = 'Sauce Labs Backpack';
         inventoryPage.visit();
+        cy.log(`Adding ${itemText} into the cart`)
         inventoryPage.addItemInCart(itemText);
     })
 })
