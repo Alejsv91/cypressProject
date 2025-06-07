@@ -1,8 +1,28 @@
 class InventoryPage {
     constructor(path) {
         this.path = path;
-
     }
+
+    REMOVE = 'REMOVE';
+
+    //selector String
+    get inventoryItemSelector(){
+        return 'div.inventory_item';
+    }
+
+    get inventoryItemAddCartButtonSelector(){
+        return 'button.btn_primary.btn_inventory';
+    }
+
+    get inventoryRemoveButtonSelector(){
+        return 'div.pricebar > button'
+    }
+
+    //selectors
+    get inentoryRemoveButton(){
+        return cy.get('div.pricebar > button');
+    }
+
 
     get productsTitle() {
         return cy.get('#inventory_filter_container > div.product_label');
@@ -13,7 +33,7 @@ class InventoryPage {
     }
 
     get inventoryItem() {
-        return cy.get('div.inventory_item');
+        return cy.get(this.inventoryItemSelector);
     }
 
     get inventoryItemImage() {
@@ -29,8 +49,9 @@ class InventoryPage {
     }
 
     get inventoryItemAddCartButton(){
-        return cy.get('button.btn_primary.btn_inventory');
+        return cy.get(this.inventoryItemAddCartButtonSelector);
     }
+
 
     visit() {
         cy.visit(this.path);
@@ -53,9 +74,18 @@ class InventoryPage {
     }
 
     addItemInCart(itemText) {
-        cy.log('Getting item by text').text(()=>{
-            
+        this.inventoryItemTitle.contains(itemText).closest(this.inventoryItemSelector)
+        .within(()=>{
+            this.inventoryItemAddCartButton.click().then(()=>{
+                this.inentoryRemoveButton.should('have.text',this.REMOVE);
+            });
+            // cy.find(this.inventoryItemAddCartButtonSelector).click();
+            cy.wait(100000);
         })
+        // this.inventoryItemTitle.each(($el)=>{
+        //     debugger;
+        // })
+        
 
     }
 }

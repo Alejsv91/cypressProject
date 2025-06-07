@@ -22,6 +22,8 @@ describe("Login test", () => {
     })
 
     it('Add items to cart', () =>{
-        let itemText = 'Sauce Labs Bolt T-Shirt';
+        let itemText = 'Sauce Labs Backpack';
+        inventoryPage.visit();
+        inventoryPage.addItemInCart(itemText);
     })
 })
